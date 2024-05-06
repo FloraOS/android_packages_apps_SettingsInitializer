@@ -2,11 +2,15 @@
           package="org.milkyway.settingsinitializer">
 
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
             android:allowBackup="false"
             android:label="@string/app_name">
-        <receiver android:name=".BootCompletedReceiver">
+        <receiver
+                android:name=".BootCompletedReceiver"
+                android:exported="true"
+        >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
