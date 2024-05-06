@@ -12,7 +12,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_PACKAGE_NAME := SettingsInitializer
 LOCAL_SRC_FILES := $(call all-subdir-java-files)
-LOCAL_MODULE_CLASS := APPS
+LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 LOCAL_REQUIRED_MODULES := privapp-permissions-SettingsInitializer.xml
 include $(BUILD_PACKAGE)
