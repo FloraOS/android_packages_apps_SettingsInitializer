@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="global_string_settings_keys">
+        <item>launcher_overlay_package</item>
+    </string-array>
+    <string-array name="global_string_settings_values">
+        <item>com.kieronquinn.app.smartspacer</item>
+    </string-array>
+</resources>
