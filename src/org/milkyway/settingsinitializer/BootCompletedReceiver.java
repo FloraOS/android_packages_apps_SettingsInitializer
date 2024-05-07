@@ -57,7 +57,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private void initializeSettings(Context context) {
         Resources res = context.getResources();
         initializeGlobalSettings(res);
-
+        initializeSecureSettings(res);
+        //TODO: set flag that device is provisoned
+        Log.d(TAG, "Finished settings initialization");
     }
 
 }

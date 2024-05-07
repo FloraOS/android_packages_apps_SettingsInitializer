@@ -15,4 +15,5 @@ LOCAL_SRC_FILES := $(call all-subdir-java-files)
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 LOCAL_REQUIRED_MODULES := privapp-permissions-SettingsInitializer.xml
+LOCAL_SDK_VERSION := 34
 include $(BUILD_PACKAGE)
