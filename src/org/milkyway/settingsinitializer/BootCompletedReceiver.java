@@ -35,6 +35,26 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 
+
+    private static void initalizeSecureIntSettings(Resource res){
+        Lod.d("Initializing secure integer settings");
+        String[] keys = res.getStringArray(R.array.secure_int_settings_keys);
+        int[] values = res.getIntArray(R.array.secure_int_settings_values);
+
+        if (keys.length != values.length) {
+            Log.e(TAG, "Different number of keys and values for secure int settings");
+            return;
+        }
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                Settings.Secure.putInt(context.getContentResolver(), keys[i], values[i]);
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+        }
+    }
+
     private static void initializeSecureSettings(Resources res) {
         Log.d(TAG, "Initializing secure settings");
         String[] keys = res.getStringArray(R.array.secure_string_settings_keys);
@@ -52,6 +72,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
                 Log.e(TAG, e.toString());
             }
         }
+        initalizeSecureIntSettings(res);
     }
 
     private void initializeSettings(Context context) {
