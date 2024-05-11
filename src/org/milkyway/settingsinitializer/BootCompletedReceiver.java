@@ -37,7 +37,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
 
     private static void initalizeSecureIntSettings(Context context, Resources res){
-        Log.d("Initializing secure integer settings");
+        Log.d(TAG, "Initializing secure integer settings");
         String[] keys = res.getStringArray(R.array.secure_int_settings_keys);
         int[] values = res.getIntArray(R.array.secure_int_settings_values);
 
