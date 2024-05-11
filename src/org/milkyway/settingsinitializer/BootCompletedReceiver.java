@@ -16,7 +16,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 
-    private static void initializeGlobalSettings(Resources res) {
+    private static void initializeGlobalSettings(Context context, Resources res) {
         Log.d(TAG, "Initializing global settings");
         String[] keys = res.getStringArray(R.array.global_string_settings_keys);
         String[] values = res.getStringArray(R.array.global_string_settings_values);
@@ -36,8 +36,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     }
 
 
-    private static void initalizeSecureIntSettings(Resource res){
-        Lod.d("Initializing secure integer settings");
+    private static void initalizeSecureIntSettings(Context context, Resources res){
+        Log.d("Initializing secure integer settings");
         String[] keys = res.getStringArray(R.array.secure_int_settings_keys);
         int[] values = res.getIntArray(R.array.secure_int_settings_values);
 
@@ -55,7 +55,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 
-    private static void initializeSecureSettings(Resources res) {
+    private static void initializeSecureSettings(Context context, Resources res) {
         Log.d(TAG, "Initializing secure settings");
         String[] keys = res.getStringArray(R.array.secure_string_settings_keys);
         String[] values = res.getStringArray(R.array.secure_string_settings_values);
@@ -72,13 +72,13 @@ public class BootCompletedReceiver extends BroadcastReceiver {
                 Log.e(TAG, e.toString());
             }
         }
-        initalizeSecureIntSettings(res);
+        initalizeSecureIntSettings(context, res);
     }
 
     private void initializeSettings(Context context) {
         Resources res = context.getResources();
-        initializeGlobalSettings(res);
-        initializeSecureSettings(res);
+        initializeGlobalSettings(context, res);
+        initializeSecureSettings(context, res);
         //TODO: set flag that device is provisoned
         Log.d(TAG, "Finished settings initialization");
     }
