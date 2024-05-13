@@ -3,5 +3,6 @@
     <privapp-permissions package="org.milkyway.settingsinitializer">
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
         <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+        <permission name="android.permission.SET_PREFERRED_APPLICATION"/>
     </privapp-permissions>
 </permissions>

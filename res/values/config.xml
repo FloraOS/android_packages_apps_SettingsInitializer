@@ -22,4 +22,7 @@
     <string-array name="secure_int_settings_values">
         <item>1</item>
     </string-array>
+    <!--Default applications-->
+    <string name="default_launcher_package" translatable="false">com.android.launcher3</string>
+    <string name="default_launcher_class" translatable="false">com.android.launcher3.Launcher</string>
 </resources>

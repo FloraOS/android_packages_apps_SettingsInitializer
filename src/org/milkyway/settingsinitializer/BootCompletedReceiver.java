@@ -7,12 +7,15 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import android.util.Log;
 
+import org.milkyway.settingsinitializer.PreferredApplicationSetter;
+
 public class BootCompletedReceiver extends BroadcastReceiver {
     private final static String TAG = "BroadcastReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             initializeSettings(context);
+            PreferredApplicationSetter.initializeSettings(context);
         }
     }
 
