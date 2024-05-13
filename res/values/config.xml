@@ -13,8 +13,7 @@
     </string-array>
     <string-array name="secure_string_settings_values">
         <item>com.kieronquinn.app.smartspacer/.ui.activities.ExportedExpandedActivity</item>
-        <item>com.kieronquinn.app.smartspacer/com.kieronquinn.app.smartspacer.service.SmartspacerAccessibilityService
-        </item>
+        <item>com.kieronquinn.app.smartspacer/com.kieronquinn.app.smartspacer.service.SmartspacerAccessibilityService</item>
     </string-array>
     <!-- Secure settings: integers -->
     <string-array name="secure_int_settings_keys">
