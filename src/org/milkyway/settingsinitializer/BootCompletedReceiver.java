@@ -10,12 +10,13 @@ import android.util.Log;
 import org.milkyway.settingsinitializer.PreferredApplicationSetter;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
-    private final static String TAG = "BroadcastReceiver";
+    private final static String TAG = "SettingsInitializer.BroadcastReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             initializeSettings(context);
             PreferredApplicationSetter.initializeSettings(context);
+            Log.i(TAG, "Finished handling broadcast");
         }
     }
 

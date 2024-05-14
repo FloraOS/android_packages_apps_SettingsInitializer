@@ -1,13 +1,20 @@
+package org.milkyway.settingsinitializer;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
+import android.util.Log;
 
 import java.util.List;
 
+import org.milkyway.settingsinitializer.R;
+
 class PreferredApplicationSetter{
+    private final static String TAG = "SettingsInitializer.PreferredApplicationSetter"
     /**
      * Initializes preffered applications from config
      * @param context context used for getting resources
@@ -16,7 +23,8 @@ class PreferredApplicationSetter{
         Resources resources = context.getResources();
         String packageName = resources.getString(R.string.default_launcher_package);
         String className = resources.getString(R.string.default_launcher_class);
-        setDefaultLauncher(context, "com.android.launcher3", "com.android.launcher3.Launcher");
+        setDefaultLauncher(context, packageName, className);
+        Log.i(TAG, "Setted default launcher " + packageName + "/" + className);
     }
 
     /**
