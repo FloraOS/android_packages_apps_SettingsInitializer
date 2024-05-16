@@ -14,7 +14,7 @@ import java.util.List;
 import org.milkyway.settingsinitializer.R;
 
 class PreferredApplicationSetter{
-    private final static String TAG = "SettingsInitializer.PreferredApplicationSetter"
+    private final static String TAG = "SettingsInitializer.PreferredApplicationSetter";
     /**
      * Initializes preffered applications from config
      * @param context context used for getting resources
