@@ -11,6 +11,7 @@ import org.milkyway.settingsinitializer.PreferredApplicationSetter;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private final static String TAG = "SettingsInitializer.BroadcastReceiver";
+    private final static String PROVISONED_KEY = "milkywayos_device_provisoned";
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
@@ -79,8 +80,20 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         initalizeSecureIntSettings(context, res);
     }
 
+    private void setProvisioned(Context context){
+        Settings.Secure.putInt(context.getContentResolver(), PROVISONED_KEY, 1);
+    }
+
+    private boolean needInitialization(Context context){
+        return Settings.Secure.getInt(context.getContentResolver(), PROVISONED_KEY, 0) == 0;
+    }
+
     private void initializeSettings(Context context) {
         Resources res = context.getResources();
+        if(!needInitialization(context){
+            Log.i(TAG, "Do not need settings initialization");
+            return;
+        }
         initializeGlobalSettings(context, res);
         initializeSecureSettings(context, res);
         //TODO: set flag that device is provisoned
