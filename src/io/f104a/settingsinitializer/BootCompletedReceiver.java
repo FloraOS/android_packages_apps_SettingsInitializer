@@ -1,4 +1,4 @@
-package org.milkyway.settingsinitializer;
+package io.f104a.settingsinitializer;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,11 +7,13 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import android.util.Log;
 
-import org.milkyway.settingsinitializer.PreferredApplicationSetter;
+import io.f104a.PreferredApplicationSetter;
+import io.f104a.settingsinitializer.R;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private final static String TAG = "SettingsInitializer.BroadcastReceiver";
-    private final static String PROVISONED_KEY = "milkywayos_device_provisoned";
+    private final static String PROVISONED_KEY = "floraos_device_provisoned";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.milkyway.settingsinitializer">
+          package="io.f104a.settingsinitializer">
 
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />

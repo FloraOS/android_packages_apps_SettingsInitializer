@@ -1,4 +1,4 @@
-package org.milkyway.settingsinitializer;
+package io.f104a.settingsinitializer;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import org.milkyway.settingsinitializer.R;
+import io.f104a.settingsinitializer.R;
 
 class PreferredApplicationSetter{
     private final static String TAG = "SettingsInitializer.PreferredApplicationSetter";
