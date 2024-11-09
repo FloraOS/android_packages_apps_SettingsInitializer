@@ -4,16 +4,27 @@
     </string-array>
     <string-array name="global_string_settings_values">
     </string-array>
+    
+    <!-- System settings: integers -->
+    <string-array name="system_int_settings_keys">
+	    <item>three_fingers_swipe_active</item>
+    </string-array>
+    <integer-array name="system_int_settings_values">
+	    <item>1</item>
+    </integer-array>
+
     <!-- Secure settings: strings -->
     <string-array name="secure_string_settings_keys">
     </string-array>
     <string-array name="secure_string_settings_values">
     </string-array>
+    
     <!-- Secure settings: integers -->
     <string-array name="secure_int_settings_keys">
     </string-array>
     <string-array name="secure_int_settings_values">
     </string-array>
+    
     <!--Default applications-->
     <string name="default_launcher_package" translatable="false">com.android.launcher3</string>
     <string name="default_launcher_class" translatable="false">com.android.launcher3.Launcher</string>

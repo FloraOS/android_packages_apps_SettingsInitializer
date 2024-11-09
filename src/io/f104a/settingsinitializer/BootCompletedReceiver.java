@@ -7,7 +7,7 @@ import android.content.res.Resources;
 import android.provider.Settings;
 import android.util.Log;
 
-import io.f104a.PreferredApplicationSetter;
+import io.f104a.settingsinitializer.PreferredApplicationSetter;
 import io.f104a.settingsinitializer.R;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -62,6 +62,29 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 
+
+    private static void initializeSystemIntSettings(Context context, Resources res){
+        Log.d(TAG, "Initializing system integer settings");
+        String[] keys = res.getStringArray(R.array.system_int_settings_keys);
+        int[] values = res.getIntArray(R.array.system_int_settings_values);
+
+        if (keys.length != values.length) {
+            Log.e(TAG, "Different number of keys and values for system int settings");
+            return;
+        }
+
+        for (int i = 0; i < keys.length; i++) {
+	    Log.d(TAG, keys[i] + ":" + values[i]);
+            try {
+                Settings.System.putInt(context.getContentResolver(), keys[i], values[i]);
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+        }
+    }
+
+   
+
     private static void initializeSecureSettings(Context context, Resources res) {
         Log.d(TAG, "Initializing secure settings");
         String[] keys = res.getStringArray(R.array.secure_string_settings_keys);
@@ -92,12 +115,13 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     private void initializeSettings(Context context) {
         Resources res = context.getResources();
-        if(!needInitialization(context){
+        if(!needInitialization(context)){
             Log.i(TAG, "Do not need settings initialization");
             return;
         }
         initializeGlobalSettings(context, res);
         initializeSecureSettings(context, res);
+	initializeSystemIntSettings(context,res);
         //TODO: set flag that device is provisoned
         Log.d(TAG, "Finished settings initialization");
     }
