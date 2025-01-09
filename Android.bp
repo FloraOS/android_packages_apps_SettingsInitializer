@@ -1,0 +1,18 @@
+prebuilt_etc {
+    name: "privapp-permissions-SettingsInitializer.xml",
+    src: "privapp-permissions-SettingsInitializer.xml",
+    sub_dir: "permissions",
+    filename_from_src: true,
+    tags: ["optional"],
+}
+
+android_app {
+    name: "SettingsInitializer",
+    srcs: ["**/*.java"],
+    privileged: true,
+    certificate: "platform",
+    tags: ["optional"],
+    required: ["privapp-permissions-SettingsInitializer.xml"],
+    sdk_version: "35",
+}
+
