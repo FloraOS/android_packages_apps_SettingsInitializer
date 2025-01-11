@@ -3,7 +3,6 @@ prebuilt_etc {
     src: "privapp-permissions-SettingsInitializer.xml",
     sub_dir: "permissions",
     filename_from_src: true,
-    tags: ["optional"],
 }
 
 android_app {
@@ -11,7 +10,6 @@ android_app {
     srcs: ["**/*.java"],
     privileged: true,
     certificate: "platform",
-    tags: ["optional"],
     required: ["privapp-permissions-SettingsInitializer.xml"],
     sdk_version: "35",
 }
